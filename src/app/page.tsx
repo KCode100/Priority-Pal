@@ -25,7 +25,10 @@ const dummyData: ListItemType[] = [
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-start p-4 max-w-md mx-auto gap-8">
-      <h1 className={`${brand.className} brand text-2xl w-full text-left text-blue-800`}>PriorityPal</h1>
+      <div className={`flex gap-4 justify-between w-full`}>
+        <h1 className={`${brand.className} text-2xl w-full text-left text-blue-800`}>PriorityPal</h1>
+        <button className="bg-blue-800 text-white h-6 w-6 inline-flex justify-center items-center">+</button>
+      </div>
       <form className="w-full">   
           <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only">Search</label>
           <div className="relative">
