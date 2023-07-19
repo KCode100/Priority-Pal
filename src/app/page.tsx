@@ -1,6 +1,26 @@
+import ListItem from "@/components/listItem"
+import { ListItemType } from "@/global"
 import { Handlee } from "next/font/google"
 
 const brand = Handlee({weight: '400', subsets: ['latin']})
+
+const dummyData: ListItemType[] = [
+  {
+    id: crypto.randomUUID(),
+    priority: 'high',
+    text: 'Another message from me Kivi Corn'
+  },
+  {
+    id: crypto.randomUUID(),
+    priority: 'medium',
+    text: 'Some dummy datat over here'
+  },
+  {
+    id: crypto.randomUUID(),
+    priority: 'low',
+    text: 'how cool is coding!?'
+  }
+]
 
 export default function Home() {
   return (
@@ -19,40 +39,10 @@ export default function Home() {
           </div>
       </form>
 
-      <div className="flex flex-col gap-4">
-        <div className="flex gap-2">
-          <div className="flex flex-col gap-2 pt-2">
-            <div className="w-5 h-5 rounded-full bg-red-400"></div>
-            <div className="w-5 h-5 rounded-full bg-orange-400"></div>
-            <div className="w-5 h-5 rounded-full bg-green-400"></div>
-          </div>
-          <div className="block max-w-md p-6 bg-pink-50 border border-gray-200 rounded-lg shadow">
-            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
-            <p className="font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-          </div>
-        </div>
-        <div className="flex gap-2">
-          <div className="flex flex-col gap-2 pt-2">
-            <div className="w-5 h-5 rounded-full bg-red-400"></div>
-            <div className="w-5 h-5 rounded-full bg-orange-400"></div>
-            <div className="w-5 h-5 rounded-full bg-green-400"></div>
-          </div>
-          <div className="block max-w-md p-6 bg-orange-50 border border-gray-200 rounded-lg shadow">
-            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
-            <p className="font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-          </div>
-        </div>
-        <div className="flex gap-2">
-          <div className="flex flex-col gap-2 pt-2">
-            <div className="w-5 h-5 rounded-full bg-red-400"></div>
-            <div className="w-5 h-5 rounded-full bg-orange-400"></div>
-            <div className="w-5 h-5 rounded-full bg-green-400"></div>
-          </div>
-          <div className="block max-w-md p-6 bg-green-50 border border-gray-200 rounded-lg shadow">
-            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
-            <p className="font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-          </div>
-        </div>
+      <div className="flex flex-col gap-4 w-full">
+        {dummyData.map(listItem => (
+          <ListItem key={listItem.id} priority={listItem.priority} text={listItem.text} />
+        ))}
       </div>
     </main>
   )
